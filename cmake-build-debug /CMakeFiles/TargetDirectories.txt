@@ -1,3 +1,0 @@
-/home/johnkauan/ProjetoAlgoritmos/cmake-build-debug /CMakeFiles/ProjetoAlgoritmos.dir
-/home/johnkauan/ProjetoAlgoritmos/cmake-build-debug /CMakeFiles/edit_cache.dir
-/home/johnkauan/ProjetoAlgoritmos/cmake-build-debug /CMakeFiles/rebuild_cache.dir
