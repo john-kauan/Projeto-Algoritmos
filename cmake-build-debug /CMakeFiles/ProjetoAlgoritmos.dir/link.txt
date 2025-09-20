@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/ProjetoAlgoritmos.dir/link.d CMakeFiles/ProjetoAlgoritmos.dir/main.c.o CMakeFiles/ProjetoAlgoritmos.dir/insertion_sort.c.o -o ProjetoAlgoritmos
