@@ -13,7 +13,7 @@ void criar_diretorios(const char* base_path, const char* nome_algoritmo) {
     mkdir(path, 0777);
 
     const char* sub_pastas[] = {"Entradas","Saidas", "Tempo"};
-    const char* tipos[] = {"Crescente", "Decrescente", "Randomicos"};
+    const char* tipos[] = {"Crescente", "Decrescente", "Randomico"};
 
     for (int i = 0; i < 3; i++) {
         sprintf(path, "%s/%s/%s", base_path, nome_algoritmo, sub_pastas[i]);
