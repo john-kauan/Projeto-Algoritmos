@@ -3,7 +3,11 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include "insertion_sort.h"
+
+#include "Algoritmos/Bubble_Sort/bubble_sort.h"
+#include "Algoritmos/Insertion_sort/insertion_sort.h"
+#include "Algoritmos/Selection_sort/selection_sort.h"
+#include "Algoritmos/Shell_sort/shell_sort.h"
 
 //função para criar pastas
 void criar_diretorios(const char* base_path, const char* nome_algoritmo) {
@@ -32,6 +36,9 @@ void menu_principal() {
     do {
         printf("===ESCOLHA UM ALGORITMO===\n");
         printf("1 - Insertion Sort\n");
+        printf("2 - Selection Sort\n");
+        printf("3 - Shell Sort\n");
+        printf("4 - Bubble Sort\n");
         printf("0 - Sair\n");
         printf("==========================\n");
         printf("Digite a sua escolha: ");
@@ -41,8 +48,20 @@ void menu_principal() {
             case 1:
                 insertion_menu();
                 break;
+            case 2:
+                selection_menu();
+                break;
+            case 3:
+                shell_menu();
+                break;
+            case 4:
+                bubble_menu();
+                break;
             case 0:
                 printf("Saindo.....\n");
+                break;
+            default:
+                printf("Opcao de algoritmo invalida.\n");
                 break;
         }
     } while (opcao_algoritmo != 0);
@@ -54,6 +73,9 @@ int main() {
 
     mkdir(base_pasta, 0777);
     criar_diretorios(base_pasta, "InsertionSort");
+    criar_diretorios(base_pasta, "SelectionSort");
+    criar_diretorios(base_pasta, "ShellSort");
+    criar_diretorios(base_pasta, "BubbleSort");
 
     menu_principal();
 
