@@ -7,7 +7,23 @@
 
 //Algoritmo Shell Sort
 void shell(int vetor[], int n){
+    int i, j, h, aux;
 
+    h=1;
+    while (h < n/3)
+        h = 3 * h + 1;
+    while(h > 0) {
+        for (i=h; i < n; i++) {
+            aux = vetor[i];
+            j=i;
+            while(j>=h && aux<vetor[j-h]) {
+                vetor[j]=vetor[j-h];
+                j=j-h;
+            }
+            vetor[j]=aux;
+        }
+        h=(h-1)/3;
+    }
 }
 
 //Função menu do SHELL SORT

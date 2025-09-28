@@ -3,31 +3,12 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-
+#include "Funcoes/funcoes.h"
 #include "Algoritmos/Bubble_Sort/bubble_sort.h"
 #include "Algoritmos/Insertion_sort/insertion_sort.h"
 #include "Algoritmos/Selection_sort/selection_sort.h"
 #include "Algoritmos/Shell_sort/shell_sort.h"
 
-//função para criar pastas
-void criar_diretorios(const char* base_path, const char* nome_algoritmo) {
-    char path[256];
-
-    sprintf(path, "%s/%s", base_path, nome_algoritmo);
-    mkdir(path, 0777);
-
-    const char* sub_pastas[] = {"Entradas","Saidas", "Tempo"};
-    const char* tipos[] = {"Crescente", "Decrescente", "Randomico"};
-
-    for (int i = 0; i < 3; i++) {
-        sprintf(path, "%s/%s/%s", base_path, nome_algoritmo, sub_pastas[i]);
-        mkdir(path, 0777);
-        for (int j = 0; j < 3; j++) {
-            sprintf(path, "%s/%s/%s/%s", base_path, nome_algoritmo, sub_pastas[i], tipos[j]);
-            mkdir(path, 0777);
-        }
-    }
-}
 
 //função do menu principal
 void menu_principal() {
