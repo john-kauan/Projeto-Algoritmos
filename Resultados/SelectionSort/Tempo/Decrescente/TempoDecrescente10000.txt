@@ -1,1 +1,1 @@
-Tempo gasto: 0.191703 segundos
+Tempo gasto: 0.395678 segundos
