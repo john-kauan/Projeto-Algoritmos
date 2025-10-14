@@ -41,7 +41,7 @@ void menu_principal() {
                 merge_menu();
                 break;
             case 0:
-                printf("Saindo.....\n");
+                printf("Saindo...\n");
                 break;
             default:
                 printf("Opcao de algoritmo invalida.\n");
