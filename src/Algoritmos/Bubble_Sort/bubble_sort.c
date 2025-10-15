@@ -81,7 +81,7 @@ void bubble_menu(){
 
                         //salvar o arquivo de entrada
                         char entrada_path[256];
-                        sprintf(entrada_path, "Resultados/SelectionSort/Entradas/%s/Entrada%s%d.txt", nome_tipo, nome_tipo, n);
+                        sprintf(entrada_path, "Resultados/BubbleSort/Entradas/%s/Entrada%s%d.txt", nome_tipo, nome_tipo, n);
                         salvar_dados(entrada_path, vetor, n);
 
                         // Medir o tempo de execução e ordenar
