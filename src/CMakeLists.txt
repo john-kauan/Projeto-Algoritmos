@@ -10,7 +10,7 @@ set(SOURCES
         Algoritmos/Shell_sort/shell_sort.c
         Algoritmos/Bubble_Sort/bubble_sort.c
         Algoritmos/Merge_sort/merge_sort.c
-
+        Algoritmos/Quick_sort/quick_sort.c
 )
 
 # Cria o executável

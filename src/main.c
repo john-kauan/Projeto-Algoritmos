@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <string.h>
 #include <sys/stat.h>
 #include "Funcoes/funcoes.h"
 #include "Algoritmos/Bubble_Sort/bubble_sort.h"
 #include "Algoritmos/Insertion_sort/insertion_sort.h"
 #include "Algoritmos/Merge_sort/merge_sort.h"
+#include "Algoritmos/Quick_sort/quick_sort.h"
 #include "Algoritmos/Selection_sort/selection_sort.h"
 #include "Algoritmos/Shell_sort/shell_sort.h"
 
@@ -19,6 +21,7 @@ void menu_principal() {
         printf("3 - Shell Sort\n");
         printf("4 - Bubble Sort\n");
         printf("5 - Merge Sort\n");
+        printf("6 - Quick Sort\n");
         printf("0 - Sair\n");
         printf("==========================\n");
         printf("Digite a sua escolha: ");
@@ -40,6 +43,8 @@ void menu_principal() {
             case 5:
                 merge_menu();
                 break;
+            case 6:
+                quick_menu();
             case 0:
                 printf("Saindo...\n");
                 break;
@@ -51,14 +56,16 @@ void menu_principal() {
 }
 
 int main() {
+
     const char* base_pasta = "Resultados";
 
     mkdir(base_pasta, 0777);
-    criar_diretorios(base_pasta, "InsertionSort");
-    criar_diretorios(base_pasta, "SelectionSort");
-    criar_diretorios(base_pasta, "ShellSort");
-    criar_diretorios(base_pasta, "BubbleSort");
-    criar_diretorios(base_pasta, "MergeSort");
+    criar_diretorios(base_pasta, "InsertionSort", NULL);
+    criar_diretorios(base_pasta, "SelectionSort", NULL);
+    criar_diretorios(base_pasta, "ShellSort", NULL);
+    criar_diretorios(base_pasta, "BubbleSort", NULL);
+    criar_diretorios(base_pasta, "MergeSort", NULL);
+    criar_diretorios(base_pasta, "QuickSort", NULL);
 
     menu_principal();
 

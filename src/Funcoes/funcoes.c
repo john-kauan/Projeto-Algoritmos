@@ -42,20 +42,32 @@ void salvar_dados(const char* nome_dados, int vetor[], int n){
 };
 
 //função para criar pastas
-void criar_diretorios(const char* base_path, const char* nome_algoritmo) {
+void criar_diretorios(const char* base_path, const char* nome_algoritmo, const char* subnivel) {
     char path[256];
 
-    sprintf(path, "%s/%s", base_path, nome_algoritmo);
+    //  Caso NÃO tenha subnível (ex: QuickSort, MergeSort etc.):
+    // Cria apenas a pasta base, sem Entradas/Saidas/Tempo.
+    if (subnivel == NULL) {
+        sprintf(path, "%s/%s", base_path, nome_algoritmo);
+        mkdir(path, 0777);
+        return; // 🔙 sai aqui para não gerar subpastas
+    }
+
+    // 📂 Caso TENHA subnível (ex: QuickSort/Primeiro)
+    sprintf(path, "%s/%s/%s", base_path, nome_algoritmo, subnivel);
     mkdir(path, 0777);
 
-    const char* sub_pastas[] = {"Entradas","Saidas", "Tempo"};
+    const char* sub_pastas[] = {"Entradas", "Saidas", "Tempo"};
     const char* tipos[] = {"Crescente", "Decrescente", "Randomico"};
 
+    // 🔁 Cria as subpastas (Entradas, Saidas, Tempo)
     for (int i = 0; i < 3; i++) {
-        sprintf(path, "%s/%s/%s", base_path, nome_algoritmo, sub_pastas[i]);
+        sprintf(path, "%s/%s/%s/%s", base_path, nome_algoritmo, subnivel, sub_pastas[i]);
         mkdir(path, 0777);
+
+        // 🔁 Dentro de cada uma, cria Crescente, Decrescente e Randomico
         for (int j = 0; j < 3; j++) {
-            sprintf(path, "%s/%s/%s/%s", base_path, nome_algoritmo, sub_pastas[i], tipos[j]);
+            sprintf(path, "%s/%s/%s/%s/%s", base_path, nome_algoritmo, subnivel, sub_pastas[i], tipos[j]);
             mkdir(path, 0777);
         }
     }
