@@ -11,6 +11,7 @@ set(SOURCES
         Algoritmos/Bubble_Sort/bubble_sort.c
         Algoritmos/Merge_sort/merge_sort.c
         Algoritmos/Quick_sort/quick_sort.c
+        Algoritmos/Heap_sort/heap_sort_min.c
 )
 
 # Cria o executável

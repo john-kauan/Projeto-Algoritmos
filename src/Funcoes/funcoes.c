@@ -45,30 +45,53 @@ void salvar_dados(const char* nome_dados, int vetor[], int n){
 void criar_diretorios(const char* base_path, const char* nome_algoritmo, const char* subnivel) {
     char path[256];
 
-    //  Caso NÃO tenha subnível (ex: QuickSort, MergeSort etc.):
-    // Cria apenas a pasta base, sem Entradas/Saidas/Tempo.
-    if (subnivel == NULL) {
-        sprintf(path, "%s/%s", base_path, nome_algoritmo);
-        mkdir(path, 0777);
-        return; // 🔙 sai aqui para não gerar subpastas
-    }
-
-    // 📂 Caso TENHA subnível (ex: QuickSort/Primeiro)
-    sprintf(path, "%s/%s/%s", base_path, nome_algoritmo, subnivel);
-    mkdir(path, 0777);
-
     const char* sub_pastas[] = {"Entradas", "Saidas", "Tempo"};
     const char* tipos[] = {"Crescente", "Decrescente", "Randomico"};
 
-    // 🔁 Cria as subpastas (Entradas, Saidas, Tempo)
-    for (int i = 0; i < 3; i++) {
-        sprintf(path, "%s/%s/%s/%s", base_path, nome_algoritmo, subnivel, sub_pastas[i]);
+    if (subnivel == NULL) {
+        //
+        // 🔹 Caso simples (HeapSortMin, MergeSort, etc)
+        // Cria:
+        //   Resultados/Algoritmo/
+        //   Resultados/Algoritmo/Entradas/{tipos}
+        //   Resultados/Algoritmo/Saidas/{tipos}
+        //   Resultados/Algoritmo/Tempo/{tipos}
+        //
+        sprintf(path, "%s/%s", base_path, nome_algoritmo);
         mkdir(path, 0777);
 
-        // 🔁 Dentro de cada uma, cria Crescente, Decrescente e Randomico
-        for (int j = 0; j < 3; j++) {
-            sprintf(path, "%s/%s/%s/%s/%s", base_path, nome_algoritmo, subnivel, sub_pastas[i], tipos[j]);
+        for (int i = 0; i < 3; i++) {
+            sprintf(path, "%s/%s/%s", base_path, nome_algoritmo, sub_pastas[i]);
             mkdir(path, 0777);
+
+            for (int j = 0; j < 3; j++) {
+                sprintf(path, "%s/%s/%s/%s",
+                        base_path, nome_algoritmo, sub_pastas[i], tipos[j]);
+                mkdir(path, 0777);
+            }
+        }
+    } else {
+        //
+        // 🔹 Caso QuickSort (com subnível)
+        // Cria:
+        //   Resultados/QuickSort/subnivel/
+        //   Resultados/QuickSort/subnivel/Entradas/{tipos}
+        //   Resultados/QuickSort/subnivel/Saidas/{tipos}
+        //   Resultados/QuickSort/subnivel/Tempo/{tipos}
+        //
+        sprintf(path, "%s/%s/%s", base_path, nome_algoritmo, subnivel);
+        mkdir(path, 0777);
+
+        for (int i = 0; i < 3; i++) {
+            sprintf(path, "%s/%s/%s/%s",
+                    base_path, nome_algoritmo, subnivel, sub_pastas[i]);
+            mkdir(path, 0777);
+
+            for (int j = 0; j < 3; j++) {
+                sprintf(path, "%s/%s/%s/%s/%s",
+                        base_path, nome_algoritmo, subnivel, sub_pastas[i], tipos[j]);
+                mkdir(path, 0777);
+            }
         }
     }
 }

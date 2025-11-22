@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
-#include "Funcoes/funcoes.h"
+#include "src/Funcoes/funcoes.h"
 #include "Algoritmos/Bubble_Sort/bubble_sort.h"
+#include "Algoritmos/Heap_sort/heap_sort_min.h"
 #include "Algoritmos/Insertion_sort/insertion_sort.h"
 #include "Algoritmos/Merge_sort/merge_sort.h"
 #include "Algoritmos/Quick_sort/quick_sort.h"
@@ -22,6 +23,7 @@ void menu_principal() {
         printf("4 - Bubble Sort\n");
         printf("5 - Merge Sort\n");
         printf("6 - Quick Sort\n");
+        printf("7 - Heap Sort Min\n");
         printf("0 - Sair\n");
         printf("==========================\n");
         printf("Digite a sua escolha: ");
@@ -45,6 +47,10 @@ void menu_principal() {
                 break;
             case 6:
                 quick_menu();
+                break;
+            case 7:
+                heap_min_menu();
+                break;
             case 0:
                 printf("Saindo...\n");
                 break;
@@ -66,6 +72,7 @@ int main() {
     criar_diretorios(base_pasta, "BubbleSort", NULL);
     criar_diretorios(base_pasta, "MergeSort", NULL);
     criar_diretorios(base_pasta, "QuickSort", NULL);
+    criar_diretorios(base_pasta, "HeapSortMin", NULL);
 
     menu_principal();
 
