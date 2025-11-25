@@ -49,14 +49,6 @@ void criar_diretorios(const char* base_path, const char* nome_algoritmo, const c
     const char* tipos[] = {"Crescente", "Decrescente", "Randomico"};
 
     if (subnivel == NULL) {
-        //
-        // 🔹 Caso simples (HeapSortMin, MergeSort, etc)
-        // Cria:
-        //   Resultados/Algoritmo/
-        //   Resultados/Algoritmo/Entradas/{tipos}
-        //   Resultados/Algoritmo/Saidas/{tipos}
-        //   Resultados/Algoritmo/Tempo/{tipos}
-        //
         sprintf(path, "%s/%s", base_path, nome_algoritmo);
         mkdir(path, 0777);
 
@@ -71,14 +63,6 @@ void criar_diretorios(const char* base_path, const char* nome_algoritmo, const c
             }
         }
     } else {
-        //
-        // 🔹 Caso QuickSort (com subnível)
-        // Cria:
-        //   Resultados/QuickSort/subnivel/
-        //   Resultados/QuickSort/subnivel/Entradas/{tipos}
-        //   Resultados/QuickSort/subnivel/Saidas/{tipos}
-        //   Resultados/QuickSort/subnivel/Tempo/{tipos}
-        //
         sprintf(path, "%s/%s/%s", base_path, nome_algoritmo, subnivel);
         mkdir(path, 0777);
 
