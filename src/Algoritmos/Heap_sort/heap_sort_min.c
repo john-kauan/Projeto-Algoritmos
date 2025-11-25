@@ -64,9 +64,7 @@ static void build_min_heap(int heap[], int heap_size) {
 }
 
 // ------------------------
-// heap (HeapSort Min) - função pública chamada pelo menu
-// Implementação: build_min_heap + extrair mínimos para array auxiliar
-// gera arquivos de entrada/saída/tempo conforme padrão do projeto
+// build_min_heap + extrair mínimos para array auxiliar
 // ------------------------
 void heap(int vetor[], int n) {
     if (n <= 1) return;
@@ -97,8 +95,7 @@ void heap(int vetor[], int n) {
 }
 
 // ------------------------
-// Funções da fila de prioridade (nomes em minúsculas como pediu)
-// Essas funções são internas ao .c — o enunciado pede apenas testes.
+// Funções da fila de prioridade
 // ------------------------
 
 // retorna o menor elemento (consulta)
@@ -139,8 +136,8 @@ static void heap_increase_key(int heap[], int heap_size, int index, int new_val)
     min_heapify(heap, heap_size, index);
 }
 
-// insere valor no heap (interpretado como MAX_HEAP_INSERT do enunciado)
-// implementação: insere no final e sobe enquanto necessario (para min-heap)
+
+//  insere no final e sobe enquanto necessario (para min-heap)
 static void max_heap_insert(int heap[], int *heap_size_ptr, int capacity, int value) {
     int heap_size = *heap_size_ptr;
     if (heap_size >= capacity) {
@@ -158,8 +155,7 @@ static void max_heap_insert(int heap[], int *heap_size_ptr, int capacity, int va
 }
 
 // ------------------------
-// Menu do HEAP SORT MIN (mantendo seu padrão)
-// Acrescentei opções para testar as funções da fila (sem gerar arquivos)
+// Menu do HEAP SORT MIN
 // ------------------------
 void heap_min_menu(){
     char opcao_entrada;
